@@ -88,22 +88,34 @@ export default function App() {
       return true;
     });
   }, [evaluation.findings, selectedRegions, selectedResourceTypes, activeTab]);
-
+  // Scope-filtered findings (region + resource type), independent of the active tab.
+  const scopedFindings = useMemo(() => {
+    return evaluation.findings.filter((finding) => {
+      if (selectedRegions.length > 0 && !selectedRegions.includes(finding.resource.region)) {
+        return false;
+      }
+      if (selectedResourceTypes.length > 0 && !selectedResourceTypes.includes(finding.resource.kind)) {
+        return false;
+      }
+      return true;
+    });
+  }, [evaluation.findings, selectedRegions, selectedResourceTypes]);
   // Calculate total applied savings from active policy findings
   const appliedSavings = useMemo(() => {
     let total = 0;
-    for (const finding of evaluation.findings) {
+    for (const finding of scopedFindings) {
       if (appliedIds.has(finding.resource.id)) {
         total += finding.monthlySavingUsd;
       }
     }
     return total;
-  }, [evaluation.findings, appliedIds]);
+  }, [scopedFindings, appliedIds]);
 
   // Recoverable / month: headline figure subtracting applied savings
   const remainingRecoverableMonthlyUsd = useMemo(() => {
-    return Math.max(0, evaluation.totalMonthlySavingUsd - appliedSavings);
-  }, [evaluation.totalMonthlySavingUsd, appliedSavings]);
+      const scopedTotal = scopedFindings.reduce((sum, f) => sum + f.monthlySavingUsd, 0);
+    return Math.max(0, scopedTotal - appliedSavings);
+  }, [scopedFindings, appliedSavings]);
 
   // Dynamic fleet efficiency score reflecting reclaimed waste
   const currentEfficiencyScore = useMemo(() => {
