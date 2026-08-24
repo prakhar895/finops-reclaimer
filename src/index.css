@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #121412;
+  --color-surface-dim: #121412;
+  --color-surface-bright: #383937;
+  --color-surface-container-lowest: #0d0f0d;
+  --color-surface-container-low: #1b1c1a;
+  --color-surface-container: #1f201e;
+  --color-surface-container-high: #292a28;
+  --color-surface-container-highest: #343533;
+  --color-surface-variant: #343533;
+  --color-surface-level-1: #1B2028;
+  --color-on-surface: #e3e2df;
+  --color-on-surface-variant: #c5c6cb;
+  --color-inverse-surface: #e3e2df;
+  --color-inverse-on-surface: #30312e;
+  --color-outline: #8f9095;
+  --color-outline-variant: #45474b;
+  --color-surface-tint: #c2c7d0;
+  --color-primary: #c2c7d0;
+  --color-on-primary: #2c3138;
+  --color-primary-container: #151a21;
+  --color-on-primary-container: #7e838c;
+  --color-primary-fixed: #dee2ec;
+  --color-primary-fixed-dim: #c2c7d0;
+  --color-on-primary-fixed: #171c23;
+  --color-on-primary-fixed-variant: #42474f;
+  --color-secondary: #f7bd4e;
+  --color-on-secondary: #422c00;
+  --color-secondary-container: #bb881a;
+  --color-on-secondary-container: #392600;
+  --color-secondary-fixed: #ffdea9;
+  --color-secondary-fixed-dim: #f7bd4e;
+  --color-on-secondary-fixed: #271900;
+  --color-on-secondary-fixed-variant: #5f4100;
+  --color-tertiary: #a0d2ad;
+  --color-on-tertiary: #05381e;
+  --color-tertiary-container: #001f0d;
+  --color-on-tertiary-container: #5d8d6c;
+  --color-tertiary-fixed: #bbefc8;
+  --color-tertiary-fixed-dim: #a0d2ad;
+  --color-on-tertiary-fixed: #00210f;
+  --color-on-tertiary-fixed-variant: #215033;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-background: #121412;
+  --color-on-background: #e3e2df;
+  --color-paper: #F5F4F0;
+  --color-hairline: #2A313B;
+
+  --font-headline-lg: 'Archivo Narrow', sans-serif;
+  --font-headline-md: 'Archivo Narrow', sans-serif;
+  --font-headline-sm: 'Archivo Narrow', sans-serif;
+  --font-body-md: 'Inter', sans-serif;
+  --font-body-sm: 'Inter', sans-serif;
+  --font-number-lg: 'IBM Plex Mono', monospace;
+  --font-number-md: 'IBM Plex Mono', monospace;
+  --font-label-caps: 'Archivo Narrow', sans-serif;
+}
+
+/* Custom Ledger Precision Styles */
+body {
+  background-color: #151A21;
+  color: #e3e2df;
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-surface-level-1 { background-color: #1B2028; }
+.border-hairline { border-color: #2A313B; border-width: 1px; }
+.bg-paper { background-color: #F5F4F0; color: #151A21; }
+
+.status-chip-safe {
+  background-color: rgba(75, 122, 90, 0.2);
+  border: 1px solid #4B7A5A;
+  color: #4B7A5A;
+}
+
+.status-chip-review {
+  background-color: rgba(247, 189, 78, 0.2);
+  border: 1px solid #f7bd4e;
+  color: #f7bd4e;
+}
+
+.status-chip-risky {
+  background-color: rgba(181, 83, 60, 0.2);
+  border: 1px solid #B5533C;
+  color: #B5533C;
+}
+
+/* Torn edge effect for tape */
+.torn-edge {
+  background-image: radial-gradient(circle at 10px 0, transparent 10px, #F5F4F0 11px);
+  background-size: 20px 20px;
+  background-repeat: repeat-x;
+  background-position: top;
+}
+
+/* Spacing and typography helpers */
+.p-gutter { padding: 16px; }
+.px-gutter { padding-left: 16px; padding-right: 16px; }
+.py-gutter { padding-top: 16px; padding-bottom: 16px; }
+.gap-gutter { gap: 16px; }
+.p-cell-padding { padding: 8px 12px; }
+
+/* Font size helpers matching DESIGN.md */
+.font-headline-lg { font-family: 'Archivo Narrow', sans-serif; }
+.font-headline-md { font-family: 'Archivo Narrow', sans-serif; }
+.font-headline-sm { font-family: 'Archivo Narrow', sans-serif; }
+.font-body-md { font-family: 'Inter', sans-serif; }
+.font-body-sm { font-family: 'Inter', sans-serif; }
+.font-number-lg { font-family: 'IBM Plex Mono', monospace; }
+.font-number-md { font-family: 'IBM Plex Mono', monospace; }
+.font-label-caps { font-family: 'Archivo Narrow', sans-serif; }
+
+.text-headline-lg { font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 600; }
+.text-headline-md { font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 600; }
+.text-headline-sm { font-size: 18px; line-height: 1.2; letter-spacing: 0; font-weight: 500; }
+.text-number-lg { font-size: 24px; line-height: 1; font-weight: 500; }
+.text-number-md { font-size: 14px; line-height: 1; font-weight: 400; }
+.text-body-md { font-size: 14px; line-height: 1.5; font-weight: 400; }
+.text-body-sm { font-size: 12px; line-height: 1.4; font-weight: 400; }
+.text-label-caps { font-size: 11px; line-height: 1; letter-spacing: 0.05em; font-weight: 700; }
+
+/* Custom scrollbar for data density */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #151A21; }
+::-webkit-scrollbar-thumb { background: #2A313B; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #45474b; }
+
+/* Range inputs */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #2A313B;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 16px;
+  background: #8f9095;
+  cursor: pointer;
+  border-radius: 0;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 8px;
+  height: 16px;
+  background: #8f9095;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+}
+
+/* Focus Rings for all interactive elements */
+button:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid #f7bd4e !important;
+  outline-offset: 2px !important;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid #f7bd4e !important;
+  outline-offset: 4px !important;
+}
+
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px #151A21, 0 0 0 4px #f7bd4e;
+}
+
+input[type="range"]:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px #151A21, 0 0 0 4px #f7bd4e;
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid #f7bd4e !important;
+  outline-offset: 2px !important;
+}
+
+/* Custom Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid #45474b;
+  border-radius: 0;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #f7bd4e;
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Responsive collapse below 900px */
+@media (max-width: 899px) {
+  .app-shell-container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  .app-layout-wrapper {
+    flex-direction: column !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .policy-rail-aside {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    border-right-width: 0 !important;
+    border-bottom-width: 1px !important;
+  }
+  .reclaim-tape-aside {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 280px !important;
+    border-left-width: 0 !important;
+    border-bottom-width: 1px !important;
+    padding-top: 16px !important;
+  }
+  .main-content-pane {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .main-scroll-pane {
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 32px !important;
+  }
+}
+
