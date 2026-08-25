@@ -4,7 +4,7 @@ A cloud cost-reclamation console built on a deterministic rule engine. It finds
 idle AWS spend, explains why each resource was flagged, and requires a dry-run
 before anything is applied.
 
-**[Live demo →](https://YOUR-URL.vercel.app)**
+**[Live demo →](https://finops-reclaimer.vercel.app/)**
 
 ![Demo](docs/demo.gif)
 
