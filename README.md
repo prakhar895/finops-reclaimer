@@ -204,8 +204,18 @@ src/
 │   ├── rules.ts         Eight rules + the evaluate() engine
 │   └── inventory.ts     Seeded synthetic fleet generator
 ├── types.ts             Resource, Finding, Policy
-├── components/          Presentational React components
-└── App.tsx              State, derivations, wiring
+├── components/
+│   ├── PolicyRail.tsx       Threshold sliders and scope filters
+│   ├── KpiStrip.tsx         Headline figures and sensitivity chart
+│   ├── FindingList.tsx      Scrollable finding table
+│   ├── FindingRow.tsx       Single finding with evidence chips
+│   ├── DryRunModal.tsx      Per-finding execution plan
+│   ├── BatchDryRunModal.tsx Batched plan with guardrail exclusion
+│   ├── ReclaimTape.tsx      Session ledger
+│   ├── AssumptionsPanel.tsx Active policy and rate card audit
+│   └── EmptyState.tsx       No-findings state
+├── App.tsx              State, derivations, wiring
+└── main.tsx             Entry point
 verify.ts                Terminal harness for the engine
 ```
 
